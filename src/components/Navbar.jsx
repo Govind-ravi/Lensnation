@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/Logo.png";
+import WhiteIcon from "../assets/LensationMediaLogoversions/WhiteIcon_Lensation.png";
 import { CgMenuRightAlt } from "react-icons/cg";
 
 const menu = [
@@ -27,11 +28,8 @@ function Navbar() {
   return (
     <>
       <nav className="px-8 md:px-12 lg:px-16 py-4 flex items-center justify-between fixed w-full backdrop-blur-lg top-0 z-10">
-        <Link to="/" className="w-10 md:w-12 flex items-center">
-          <img src={Logo} alt="Logo" className="w-full object-contain" />
-          <div className="text-2xl md:text-3xl text3d text-theme font-bold">
-            Lensnation
-          </div>
+        <Link to="/" className="w-12 md:w-16 flex items-center">
+          <img src={WhiteIcon} alt="Logo" className="w-full object-contain" />
         </Link>
         <div className="hidden sm:flex gap-4 font-medium">
           {menu.map((item, i) => (

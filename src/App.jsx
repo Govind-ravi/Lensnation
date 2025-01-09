@@ -33,7 +33,7 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
-      {/* {shouldShowLayout && <Footer />} */}
+      {shouldShowLayout && <Footer />}
     </>
   );
 }
