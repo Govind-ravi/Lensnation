@@ -10,15 +10,12 @@
 body {
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
-  font-family: "Montserrat";
+  font-family: Helvetica, sans-serif;
 }
+
 * {
   scrollbar-width: none;
 }
-
-/* .text3d {
-  text-shadow: 2px 2px 1px rgb(124, 20, 24);
-} */
 
 /* carousle */
 .carousel {
@@ -68,4 +65,8 @@ body {
 }
 .div3d > div {
   display: inline-block; /* Ensure the child divs stay aligned horizontally */
+}
+
+.fEBSLT {
+  min-width: fit-content !important;
 }

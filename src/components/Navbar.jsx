@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/Logo.png";
-import WhiteIcon from "../assets/LensationMediaLogoversions/WhiteIcon_Lensation.png";
+import WhiteIcon from "../assets/LensationMediaLogoversions/White_Icon.png";
 import { CgMenuRightAlt } from "react-icons/cg";
 
 const menu = [
@@ -25,9 +25,32 @@ const menu = [
 
 function Navbar() {
   const [isMenu, setIsMenu] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= window.innerHeight) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <nav className="px-8 md:px-12 lg:px-16 py-4 flex items-center justify-between fixed w-full backdrop-blur-lg top-0 z-10">
+      <nav
+        className={`px-8 md:px-12 lg:px-16 py-4 flex items-center justify-between fixed w-full top-0 z-10 ${
+          isScrolled ? "backdrop-blur-lg" : "backdrop-blur-0"
+        }`}
+      >
         <Link to="/" className="w-12 md:w-16 flex items-center">
           <img src={WhiteIcon} alt="Logo" className="w-full object-contain" />
         </Link>

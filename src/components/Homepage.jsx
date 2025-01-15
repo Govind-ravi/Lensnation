@@ -1,106 +1,93 @@
-import React from "react";
-import AbhiNandan from "../assets/AbhiNandan.jpg";
-import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import ServicesSection from "./ServicesSection";
-import Carousel from "./Carousel";
+import React, { useEffect, useState } from "react";
 import Hero from "../assets/Hero.jpeg";
+import Header from "../assets/Header.png";
 import Hero2 from "../assets/Hero2.jpeg";
-
-const images = [Hero, Hero2, Hero, Hero2, Hero, Hero2];
+import Marquee from "react-marquee-slider";
+import AboutSection from "./homepage/AboutSection";
+import ClientSection from "./homepage/ClientSection";
+import ServiceSection from "./homepage/ServiceSection";
+import AwardsSection from "./homepage/AwardsSection";
+import WorksSection from "./homepage/WorksSection";
 
 function Homepage() {
+  const [scrollPercentage, setScrollPercentage] = useState(0);
+  console.log(Math.round(scrollPercentage));
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+
+      const scrollHeight = window.innerHeight / 2;
+      let scrolled = (scrollTop / scrollHeight) * 100;
+
+      // To Ensure no glitches, stop scrolling after 60%
+      if (scrolled < 0) {
+        scrolled = 0;
+      } else if (scrolled > 65) {
+        scrolled = 100;
+        return;
+      }
+      setScrollPercentage(scrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const heroHeight = Math.max(
+    window.innerHeight * (1 - scrollPercentage / 100),
+    0
+  );
+
+  useEffect(() => {
+    const handleScroll = (event) => {
+      event.preventDefault(); // Prevent the default scroll behavior
+      const scrollFactor = scrollPercentage > 60 ? 1 : 0.2;
+
+      const scrollTop = window.scrollY + event.deltaY * scrollFactor;
+      window.scrollTo({ top: scrollTop });
+    };
+
+    window.addEventListener("wheel", handleScroll, { passive: false });
+
+    return () => {
+      window.removeEventListener("wheel", handleScroll);
+    };
+  }, [scrollPercentage]);
+
   return (
     <>
-      <div className="relative overflow-hidden">
-        <div className="absolute top-0 left-0 h-screen w-screen bg-black/50 -"></div>
-        <div className="h-screen flex items-end justify-end">
-          <h1 className="p-4 text-lg xxs:text-xl sm:text-2xl md:text-3xl font-semibold">
-            Lensation Photography
-          </h1>
+      <div
+        style={{
+          height: `${heroHeight}px`,
+          transition: "height 0.1s linear",
+        }}
+        className="relative overflow-hidden"
+      >
+        <img src={Header} alt="" className="w-full h-full object-cover" />
+        <div className="absolute bottom-0 text-[4rem] xs:text-[5rem] sm:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-semibold -translate-x-24">
+          <Marquee velocity={150}>
+            <div style={{ padding: "0 16px" }}>Photographer</div>
+            <div>-</div>
+            <div style={{ padding: "0 16px" }}>Videographer</div>
+            <div>-</div>
+            <div style={{ padding: "0 16px" }}>Editor</div>
+            <div>-</div>
+          </Marquee>
         </div>
       </div>
 
-      {/* Company */}
-      <div className="w-[95%] sm:w-[90%] md:w-[80%] mx-auto my-4 sm:my-12 md:my-24">
-        <div className="space-y-4 sm:space-y-8">
-          <div>
-            <h1 className="text-4xl md:text-5xl text-theme text3d font-medium font-inter-tight">
-              About Lensation
-            </h1>
-            <p className="text-sm sm:text-base font-inter-tight">
-              Welcome to Lensation Photography
-            </p>
-          </div>
-          <p className="text-sm sm:text-base">
-            At Lensation Photography, we specialize in Commercial Media
-            Production, combining creativity and precision to help businesses
-            and individuals stand out. As a trusted name in Marketing and
-            Advertising, we create tailored media content that speaks directly
-            to your audience. Our experienced team is dedicated to turning your
-            ideas into stunning visuals that impress and inspire.
-          </p>
-          <p>
-            At Lensation Photography, we pride ourselves on delivering tailored
-            media solutions designed to help you promote yourself or your
-            business effectively. Our knowledgeable team of professionals is
-            dedicated to ensuring that your vision is brought to life with
-            precision and flair.
-          </p>
-        </div>
-      </div>
-      <Carousel />
+      <AboutSection />
+      <ClientSection />
+      <ServiceSection />
+      <AwardsSection />
+      <WorksSection />
 
-      {/* CEO */}
-      <div className="min-h-screen w-[95%] md:w-[90%] lg:w-[80%] mx-auto my-12 sm:my-24 flex items-center justify-center">
-        <div className="flex flex-col md:flex-row items-center gap-8 justify-between">
-          <div className="flex flex-col w-[90%] sm:w-[70%] justify-between gap-4 lg:gap-8">
-            <div>
-              <h1 className="text-4xl lg:text-5xl text-theme text3d font-medium font-inter-tight">
-                Abhi Nandan
-              </h1>
-              <p className="text-sm md:text-base font-inter-tight">
-                Founder, DOP
-              </p>
-            </div>
-            <p>
-              Abhi Nandan, a photographer and video editor by trade, is the
-              Founder and CEO of{" "}
-              <span className="text-theme font-medium">Lensnation</span>, a
-              renowned creative agency specializing in visual storytelling. With
-              a keen eye for detail and a passion for capturing captivating
-              moments.
-            </p>
-            <p>
-              Abhi has built a brand that delivers high-quality photography and
-              videography services to a diverse range of clients. Through
-              Lensnation, he continues to push the boundaries of creativity,
-              blending technical expertise with artistic vision to craft
-              compelling visuals that leave a lasting impact.
-            </p>
-            <div className="flex gap-4">
-              <div className="p-2 text-xl border-2 border-gray-300 text-gray-300 rounded-full">
-                <FaInstagram />
-              </div>
-              <div className="p-2 text-xl border-2 border-gray-300 text-gray-300 rounded-full">
-                <FaLinkedinIn />
-              </div>
-              <div className="p-2 text-xl border-2 border-gray-300 text-gray-300 rounded-full">
-                <FaXTwitter />
-              </div>
-            </div>
-          </div>
-          <div className="w-[95%] sm:w-[80%] md:w-[50%] h-[300px] sm:h-[400px]">
-            <img
-              src={AbhiNandan}
-              alt=""
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
       {/* Gallery */}
-      <div className="overflow-scroll flex items-center justify-center w-full">
+      {/* <div className="overflow-scroll flex items-center justify-center w-full">
         <div className="flex gap-4 md:gap-8 w-full px-4 md:px-8 h-[350px] md:h-[400px] lg:h-[500px]">
           {images.map((image, i) => (
             <div
@@ -117,9 +104,9 @@ function Homepage() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
       {/* Teams */}
-      <div className="min-h-[50vh] my-12 sm:my-24 flex flex-col justify-center w-[95%] md:w-[90%] lg:w-[80%] mx-auto gap-8">
+      {/* <div className="min-h-[50vh] my-12 sm:my-24 flex flex-col justify-center w-[95%] md:w-[90%] lg:w-[80%] mx-auto gap-8">
         <h1 className="text-4xl md:text-5xl text-theme text3d font-medium font-inter-tight">
           Wo we are
         </h1>
@@ -136,7 +123,7 @@ function Homepage() {
               </div>
             ))}
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
