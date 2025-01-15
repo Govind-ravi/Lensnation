@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Hero from "../assets/Hero.jpeg";
 import Header from "../assets/Header.png";
-import Hero2 from "../assets/Hero2.jpeg";
 import Marquee from "react-marquee-slider";
 import AboutSection from "./homepage/AboutSection";
 import ClientSection from "./homepage/ClientSection";
