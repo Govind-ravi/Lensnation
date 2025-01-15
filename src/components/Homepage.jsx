@@ -66,13 +66,21 @@ function Homepage() {
         className="relative overflow-hidden"
       >
         <img src={Header} alt="" className="w-full h-full object-cover" />
-        <div className="absolute bottom-0 text-[4rem] xs:text-[5rem] sm:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-semibold -translate-x-24">
-          <Marquee velocity={150}>
-            <div style={{ padding: "0 16px" }}>Photographer</div>
+        <div className="absolute bottom-0 text-[4rem] xs:text-[5rem] sm:text-[6rem] lg:text-[8rem] xl:text-[9rem] font-semibold -translate-x-24">
+          <Marquee velocity={100}>
+            <div style={{ padding: "0 16px" }}>Photography</div>
             <div>-</div>
-            <div style={{ padding: "0 16px" }}>Videographer</div>
+            <div style={{ padding: "0 16px" }}>Videography</div>
             <div>-</div>
-            <div style={{ padding: "0 16px" }}>Editor</div>
+            <div style={{ padding: "0 16px" }}>Corporate Films</div>
+            <div>-</div>
+            <div style={{ padding: "0 16px" }}>Commercials</div>
+            <div>-</div>
+            <div style={{ padding: "0 16px" }}>Production</div>
+            <div>-</div>
+            <div style={{ padding: "0 16px" }}>Pre Production</div>
+            <div>-</div>
+            <div style={{ padding: "0 16px" }}>Post Production</div>
             <div>-</div>
           </Marquee>
         </div>
