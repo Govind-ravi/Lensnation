@@ -25,17 +25,17 @@ const awards = [
 
 function AwardsSection() {
   return (
-    <div className="lg:flex-row mx-2 xs:mx-4 sm:mx-8 md:mx-12 lg:mx-16 my-16 sm:my-24 lg:my-40 space-y-4">
-      <p>Awards</p>
-      <p className="text-2xl xs:text-3xl sm:text-4xl font-semibold lg:w-2/3 xl:w-1/2">
+    <div className="lg:flex-row mx-4 md:mx-8 lg:mx-10 my-16 sm:my-24 lg:my-40 space-y-4">
+      <p className="text-graySecondary font-semibold">Awards</p>
+      <p className="text-2xl xs:text-2xl md:text-3xl xl:text-4xl font-semibold lg:w-2/3 xl:w-1/2">
         These awards represent milestones in my journey as an art director and
         digital designer, celebrating creativity and innovation.
       </p>
-      <div className="lg:w-2/3 xl:w-1/2">
+      <div className="xl:w-2/3">
         {awards.map((award, i) => (
-          <div key={i} className="py-4 border-b-[1px]">
-            <h4 className="text-xl font-medium">{award.title}</h4>
-            <div className="flex justify-between text-sm">
+          <div key={i} className="py-4 border-b-[1px] border-b-[#6c6b6b]">
+            <h4 className="text-xl font-semibold">{award.title}</h4>
+            <div className="flex justify-between text-graySecondary font-semibold">
               <p>{award.issuer}</p>
               <p>{award.year}</p>
             </div>

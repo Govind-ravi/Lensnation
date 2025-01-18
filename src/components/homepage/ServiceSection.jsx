@@ -46,9 +46,9 @@ const services = [
 
 function ServiceSection() {
   return (
-    <div className="lg:flex-row mx-2 xs:mx-4 sm:mx-8 md:mx-12 lg:mx-16 my-16 sm:my-24 lg:my-40 space-y-6">
-      <p>My Services</p>
-      <p className="text-2xl xs:text-3xl sm:text-4xl font-semibold lg:w-2/3 xl:w-1/2">
+    <div className="lg:flex-row mx-4 md:mx-8 lg:mx-10 my-16 sm:my-24 lg:my-40 space-y-6">
+      <p className="text-graySecondary font-semibold">My Services</p>
+      <p className="text-2xl xs:text-2xl md:text-3xl xl:text-4xl font-semibold lg:w-2/3 xl:w-1/2">
         Combining creativity, strategy, and technical expertise, these are the
         service I offer.
       </p>
@@ -56,14 +56,14 @@ function ServiceSection() {
         {services.map((service, i) => (
           <div
             key={i}
-            className={`h-60 xs:h-80 sm:h-96 md:h-60 lg:h-80 xl:h-96 relative ${
+            className={`h-[300px] xs:h-[350px] sm:h-[450px] md:h-60 lg:h-80 xl:h-[500px] relative ${
               i === 1 || i === 2 || i === 5 ? "md:col-span-2" : "md:col-span-1"
             }`}
           >
-            <p className="absolute text-lg lg:text-xl xl:text-3xl font-semibold z-10 top-0">
+            <p className="absolute text-lg lg:text-xl xl:text-3xl font-semibold z-10 top-0 p-2">
               {service.title}
             </p>
-            <p className="absolute text-base xl:text-base z-10 bottom-0">
+            <p className="absolute z-10 bottom-0 p-2 md:font-semibold">
               {service.content}
             </p>
             <img

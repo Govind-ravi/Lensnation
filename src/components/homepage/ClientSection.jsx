@@ -13,23 +13,20 @@ const logos = [
 
 function ClientSection() {
   return (
-    <div className="lg:flex-row mx-2 xs:mx-4 sm:mx-8 md:mx-12 lg:mx-16 my-16 sm:my-24 lg:my-40 space-y-4">
-      <p>Clients & Partners</p>
-      <p className="text-2xl xs:text-3xl sm:text-4xl font-semibold lg:w-2/3 xl:w-1/2">
+    <div className="lg:flex-row mx-4 md:mx-8 lg:mx-10 sm:my-24 lg:my-40 space-y-4 border-b-[1px] pb-8 lg:pb-12">
+      <p className="text-graySecondary font-semibold">Clients & Partners</p>
+      <p data-aos="fade-up" className="text-2xl xs:text-2xl md:text-3xl xl:text-4xl font-semibold lg:w-2/3 xl:w-1/2 pb-6">
         Over the years, I’ve had the opportunity of collaborating with some
         clients from big brands. Here are some of them.
       </p>
       {/* Logo */}
-      <div className="flex gap-40 overflow-scroll">
-        <Marquee velocity={50}>
+      <div data-aos="fade-up" className="grid grid-cols-3 md:grid-cols-6 gap-2 xl:gap-4 overflow-scroll">
           {logos.map((logo, i) => (
-            <div key={i} className="bg-[#222222] rounded w-24 xs:w-32 sm:w-40 md:w-52 lg:w-60 xl:w-72 mx-4">
+            <div key={i} className="bg-[#3b3b3b] rounded">
               <img src={logo} alt="" className="h-full w-full object-contain" />
             </div>
           ))}
-        </Marquee>
       </div>
-      <hr className="" />
     </div>
   );
 }

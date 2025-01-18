@@ -6,6 +6,7 @@ export default {
       colors: {
         theme: "#fff",
         primary: "#888888",
+        graySecondary: "#dcdce4"
       },
       fontFamily: {
         "inter-tight": ['"Inter tight"', "sans-serif"],

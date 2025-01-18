@@ -6,15 +6,15 @@
   --theme: #ea272d;
   --cardSize: 30rem;
 }
-
 body {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #212121;
   color: #fff;
   font-family: Helvetica, sans-serif;
 }
 
 * {
   scrollbar-width: none;
+  box-sizing: border-box;
 }
 
 /* carousle */
@@ -69,4 +69,46 @@ body {
 
 .fEBSLT {
   min-width: fit-content !important;
+}
+
+/*  */
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Fade Down */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100px); /* Start slightly above */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at the original position */
+  }
+}
+
+.fade-down-animation {
+  animation: fadeDown 1s ease-out forwards;
+}
+
+/* Fade Up */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up-animation {
+  animation: fadeDown 1s ease-out forwards;
 }

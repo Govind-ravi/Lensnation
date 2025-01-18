@@ -7,6 +7,16 @@ import ServiceSection from "./homepage/ServiceSection";
 import AwardsSection from "./homepage/AwardsSection";
 import WorksSection from "./homepage/WorksSection";
 
+const services = [
+  "Photography",
+  "Videography",
+  "Corporate Films",
+  "Commercials",
+  "Production",
+  "Pre Production",
+  "Post Production",
+];
+
 function Homepage() {
   const [scrollPercentage, setScrollPercentage] = useState(0);
   console.log(Math.round(scrollPercentage));
@@ -43,7 +53,7 @@ function Homepage() {
   useEffect(() => {
     const handleScroll = (event) => {
       event.preventDefault(); // Prevent the default scroll behavior
-      const scrollFactor = scrollPercentage > 60 ? 1 : 0.2;
+      const scrollFactor = scrollPercentage > 60 ? 0.9 : 0.2;
 
       const scrollTop = window.scrollY + event.deltaY * scrollFactor;
       window.scrollTo({ top: scrollTop });
@@ -61,27 +71,28 @@ function Homepage() {
       <div
         style={{
           height: `${heroHeight}px`,
-          transition: "height 0.1s linear",
+          transition: "height 0.2s ease",
         }}
         className="relative overflow-hidden"
       >
-        <img src={Header} alt="" className="w-full h-full object-cover" />
-        <div className="absolute bottom-0 text-[4rem] xs:text-[5rem] sm:text-[6rem] lg:text-[8rem] xl:text-[9rem] font-semibold -translate-x-24">
-          <Marquee velocity={100}>
-            <div style={{ padding: "0 16px" }}>Photography</div>
-            <div>-</div>
-            <div style={{ padding: "0 16px" }}>Videography</div>
-            <div>-</div>
-            <div style={{ padding: "0 16px" }}>Corporate Films</div>
-            <div>-</div>
-            <div style={{ padding: "0 16px" }}>Commercials</div>
-            <div>-</div>
-            <div style={{ padding: "0 16px" }}>Production</div>
-            <div>-</div>
-            <div style={{ padding: "0 16px" }}>Pre Production</div>
-            <div>-</div>
-            <div style={{ padding: "0 16px" }}>Post Production</div>
-            <div>-</div>
+        <img
+          src={Header}
+          alt=""
+          // style={{
+          //   animation: "scaleUp 1s ease-in-out forwards",
+          // }}
+          className="w-full h-screen object-cover opacity-80 object-center scale-100 transition-all duration-1000"
+        />
+        <div
+          data-aos-delay="500"
+          className="absolute -bottom-4 sm:-bottom-8 md:-bottom-10 xl:-bottom-12 text-[4rem] xs:text-[5rem] sm:text-[6rem] lg:text-[8rem] xl:text-[9rem] font-semibold"
+        >
+          <Marquee velocity={30}>
+            {services.map((service, i) => (
+              <div key={i} style={{ padding: "0 16px" }}>
+                {service} -
+              </div>
+            ))}
           </Marquee>
         </div>
       </div>
