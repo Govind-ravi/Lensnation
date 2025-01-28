@@ -258,13 +258,6 @@ function Spotlight() {
 
   return (
     <>
-      {/* Home */}
-      <Link
-        to="/"
-        className="fixed top-6 left-6 z-10 text-3xl text3d text-white/90 font-bold"
-      >
-        Lensation
-      </Link>
       {/* Display overlay and zoomed image */}
       {zoomedImage && (
         <>

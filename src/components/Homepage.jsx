@@ -7,100 +7,16 @@ import ServiceSection from "./homepage/ServiceSection";
 import AwardsSection from "./homepage/AwardsSection";
 import WorksSection from "./homepage/WorksSection";
 
-const services = [
-  "Photography",
-  "Videography",
-  "Corporate Films",
-  "Commercials",
-  "Production",
-  "Pre Production",
-  "Post Production",
-];
-
 function Homepage() {
-  const [scrollPercentage, setScrollPercentage] = useState(0);
-  console.log(Math.round(scrollPercentage));
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-
-      const scrollHeight = window.innerHeight / 2;
-      let scrolled = (scrollTop / scrollHeight) * 100;
-
-      // To Ensure no glitches, stop scrolling after 60%
-      if (scrolled < 0) {
-        scrolled = 0;
-      } else if (scrolled > 65) {
-        scrolled = 100;
-        return;
-      }
-      setScrollPercentage(scrolled);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Clean up the event listener
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  const heroHeight = Math.max(
-    window.innerHeight * (1 - scrollPercentage / 100),
-    0
-  );
-
-  useEffect(() => {
-    const handleScroll = (event) => {
-      event.preventDefault(); // Prevent the default scroll behavior
-      const scrollFactor = scrollPercentage > 60 ? 0.9 : 0.2;
-
-      const scrollTop = window.scrollY + event.deltaY * scrollFactor;
-      window.scrollTo({ top: scrollTop });
-    };
-
-    window.addEventListener("wheel", handleScroll, { passive: false });
-
-    return () => {
-      window.removeEventListener("wheel", handleScroll);
-    };
-  }, [scrollPercentage]);
-
   return (
     <>
-      <div
-        style={{
-          height: `${heroHeight}px`,
-          transition: "height 0.2s ease",
-        }}
-        className="relative overflow-hidden"
-      >
-        <img
-          src={Header}
-          alt=""
-          // style={{
-          //   animation: "scaleUp 1s ease-in-out forwards",
-          // }}
-          className="w-full h-screen object-cover opacity-80 object-center scale-100 transition-all duration-1000"
-        />
-        <div
-          data-aos-delay="500"
-          className="absolute -bottom-4 sm:-bottom-8 md:-bottom-10 xl:-bottom-12 text-[4rem] xs:text-[5rem] sm:text-[6rem] lg:text-[8rem] xl:text-[9rem] font-semibold"
-        >
-          <Marquee velocity={30}>
-            {services.map((service, i) => (
-              <div key={i} style={{ padding: "0 16px" }}>
-                {service} -
-              </div>
-            ))}
-          </Marquee>
-        </div>
+      <div className="h-screen">
       </div>
 
       <AboutSection />
       <ClientSection />
       <ServiceSection />
-      <AwardsSection />
+      {/* <AwardsSection /> */}
       <WorksSection />
 
       {/* Gallery */}

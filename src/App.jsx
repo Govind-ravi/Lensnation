@@ -15,6 +15,8 @@ import Blog from "./components/Blog";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
+import Aboutpage from "./components/Aboutpage";
+import Gallery from "./components/Gallery";
 
 function AppContent() {
   const location = useLocation();
@@ -27,6 +29,10 @@ function AppContent() {
     });
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   // Define routes where Navbar and Footer should not appear
   const noLayoutRoutes = ["/spotlight"];
 
@@ -38,8 +44,8 @@ function AppContent() {
       <div>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/about" element={<Spotlight />} />
-          <Route path="/work" element={<Spotlight />} />
+          <Route path="/about" element={<Aboutpage />} />
+          <Route path="/gallery" element={<Gallery />} />
           {/* <Route path="/blog" element={<Blog />} />
           <Route path="/services" element={<Services />} /> */}
           <Route path="/contact" element={<Contact />} />

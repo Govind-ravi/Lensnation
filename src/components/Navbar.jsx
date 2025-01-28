@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../assets/Logo.png";
 import WhiteIcon from "../assets/LensationMediaLogoversions/White_Icon.png";
-import { CgMenuRightAlt } from "react-icons/cg";
 
 const menu = [
   {
@@ -10,8 +8,8 @@ const menu = [
     link: "about",
   },
   {
-    name: "Work",
-    link: "work",
+    name: "Gallery",
+    link: "gallery",
   },
   {
     name: "Contact",
@@ -25,7 +23,7 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY >= window.innerHeight - 450) {
+      if (window.scrollY >= 200) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -47,7 +45,6 @@ function Navbar() {
           isScrolled ? "bg-[#212121]" : "backdrop-blur-0"
         } ${isMenu ? "bg-black/90" : ""} transition-all duration-500`}
       >
-        <hr className="absolute h-2 w-[95%] -bottom-2 left-1/2 -translate-x-1/2" />
         <Link to="/" className="w-12 md:w-16 flex items-center">
           <img src={WhiteIcon} alt="Logo" className="w-full object-contain" />
         </Link>

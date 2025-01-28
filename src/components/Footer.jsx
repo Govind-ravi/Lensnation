@@ -4,7 +4,7 @@ import WhiteIcon from "../assets/LensationMediaLogoversions/White_Logo.png";
 
 function Footer() {
   return (
-    <footer className="mx-6 sm:mx-8 lg:mx-10 mt-16 sm:mt-24 lg:mt-40  gap-8 lg:gap-16">
+    <footer className="px-6 sm:px-8 lg:px-10 pt-16 sm:pt-24 lg:pt-40  gap-8 lg:gap-16 bg-body-bg">
       {/* <hr className="h-2" /> */}
       <div className="relative flex flex-col xl:flex-row xl:items-end justify-between gap-16">
         <div className="flex flex-col gap-16 xs:gap-32 lg:gap-40">
@@ -43,7 +43,7 @@ function Footer() {
         </div>
       </div>
       <hr className="mt-10" />
-      <div className="my-6 text-center xl:text-start text-sm xs:text-base">
+      <div className="py-6 text-center xl:text-start text-sm xs:text-base">
         <p>+91-9880540700 | lensation.abhi@gmail.com</p>
         <p>
           #974, 2E cross, 4B main, 3rd stage, 3rd block, Basaveshwara Nagar,

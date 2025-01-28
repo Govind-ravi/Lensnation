@@ -19,28 +19,16 @@ const services = [
       "Create compelling videos that effectively showcase your brand’s mission and values.",
   },
   {
-    title: "Food Photography & Videography",
+    title: "Products",
     Image: Food,
     content:
       "Enhance the visual appeal of your dishes with vibrant, high-quality visuals.",
   },
   {
-    title: "Educational Videos",
+    title: "Cinematic Posters",
     Image: Educational,
     content:
       "Produce engaging content that simplifies complex concepts for effective learning.",
-  },
-  {
-    title: "Architecture Photography & Videography",
-    Image: Architecture,
-    content:
-      "Capture and highlight the intricate beauty of architectural designs with professional imagery.",
-  },
-  {
-    title: "Corporate Events",
-    Image: Events,
-    content:
-      "Document your corporate events with precision, capturing key moments and highlights.",
   },
 ];
 
